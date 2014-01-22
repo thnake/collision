@@ -1,0 +1,113 @@
+# Alias Wavefront MTL File Exported from SketchUp
+# with OBJexporter (c) 2013 TIG
+# Made for 'TexturObjekt.obj'
+
+newmtl Default_Material
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl Wood_Floor_Dark
+Ka 0.6 0.368627 0.164706
+Kd 0.6 0.368627 0.164706
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+map_Kd TexturObjekt_Textures/Wood_Floor_Dark.PPM
+
+newmtl Wood_Plywood_Knots
+Ka 0.537255 0.478431 0.160784
+Kd 0.537255 0.478431 0.160784
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+map_Kd TexturObjekt_Textures/Wood_Plywood_Knots.PPM
+
+newmtl Tile_Navy
+Ka 0.168627 0.184314 0.227451
+Kd 0.168627 0.184314 0.227451
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+map_Kd TexturObjekt_Textures/Tile_Navy.PPM
+
+newmtl Brick_Rough_Tan
+Ka 0.654902 0.552941 0.321569
+Kd 0.654902 0.552941 0.321569
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+map_Kd TexturObjekt_Textures/Brick_Rough_Tan.PPM
+
+newmtl Green
+Ka 0 0.501961 0
+Kd 0 0.501961 0
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl LightGray
+Ka 0.662745 0.662745 0.662745
+Kd 0.662745 0.662745 0.662745
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl Charcoal
+Ka 0.137255 0.137255 0.137255
+Kd 0.137255 0.137255 0.137255
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl jean_blue
+Ka 0.141176 0.184314 0.258824
+Kd 0.141176 0.184314 0.258824
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl Beige1
+Ka 0.827451 0.741176 0.564706
+Kd 0.827451 0.741176 0.564706
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl Color_B24
+Ka 0.2 0.137255 0.117647
+Kd 0.2 0.137255 0.117647
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl 0135_DarkGray
+Ka 0.317647 0.317647 0.317647
+Kd 0.317647 0.317647 0.317647
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+newmtl 969696
+Ka 0.376471 0.376471 0.376471
+Kd 0.376471 0.376471 0.376471
+Ks 0.333 0.333 0.333
+Ns 0
+d 1
+Tr 1
+
+#EOF
