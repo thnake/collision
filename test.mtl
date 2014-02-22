@@ -1,40 +1,10 @@
-# Alias Wavefront MTL File Exported from SketchUp
-# with OBJexporter (c) 2013 TIG
-# Made for 'test.obj'
+# Blender MTL File: 'untitled.blend'
+# Material Count: 1
 
-newmtl Default_Material
-Ka 1 1 1
-Kd 1 1 1
-Ks 0.333 0.333 0.333
+newmtl None
 Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
 d 1
-Tr 1
-
-newmtl Brick_Antique
-Ka 0.576471 0.411765 0.278431
-Kd 0.576471 0.411765 0.278431
-Ks 0.333 0.333 0.333
-Ns 0
-d 1
-Tr 1
-map_Kd test_Textures/Brick_Antique.ppm
-
-newmtl Stone_Flagstone_Ashlar
-Ka 0.686275 0.454902 0.4
-Kd 0.686275 0.454902 0.4
-Ks 0.333 0.333 0.333
-Ns 0
-d 1
-Tr 1
-map_Kd test_Textures/Stone_Flagstone_Ashlar.ppm
-
-newmtl Metal_Steel_Textured_White
-Ka 0.74902 0.74902 0.74902
-Kd 0.74902 0.74902 0.74902
-Ks 0.333 0.333 0.333
-Ns 0
-d 1
-Tr 1
-map_Kd test_Textures/Metal_Steel_Textured_White.ppm
-
-#EOF
+illum 2

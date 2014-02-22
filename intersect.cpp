@@ -23,8 +23,8 @@ int IntersectLineTriangle(Vector p, Vector q, Vector a, Vector b, Vector c,
 
 	// optimierbar
 	crossProduct(pq, pc, &m);
-	u = scalarProd(pb, m); // ScalarTriple(pq, pc, pb);
-	v = -scalarProd(pa, m); // ScalarTriple(pq, pa, pc);
+	u = scalarProd(&pb, &m); // ScalarTriple(pq, pc, pb);
+	v = -scalarProd(&pa, &m); // ScalarTriple(pq, pa, pc);
 	if (!SameSign(u, v)) return 0;
 	w = ScalarTriple(pq, pb, pa);
 	if (!SameSign(u, w)) return 0;
@@ -53,25 +53,25 @@ int IntersectLineTriangle(Vector p, Vector q, Vector a, Vector b, Vector c,
 // u: position
 // v: richtung
 // lambda: länge
-int checkIntersectRayPlane(triangle p, Vector u, Vector dir, float* lambda)
+int checkIntersectRayPlane(triangle *p, Vector *u, Vector *dir, float* lambda)
 {
 	Vector v(3,0);
-	v[0] = dir[0];
-	v[1] = dir[1];
-	v[2] = dir[2];
+	v[0] = (*dir)[0];
+	v[1] = (*dir)[1];
+	v[2] = (*dir)[2];
 	normalizeVector(&v);
 	
-	float scalarprod = scalarProd(p.normal, v);
+	float scalarprod = scalarProd(&p->normal, &v);
 	Vector delta(3,0);
 	if(scalarprod == 0)
 	{
 		return 0;
 	}
 
-	delta[0] = p.a[0] - u[0];
-	delta[1] = p.a[1] - u[1];
-	delta[2] = p.a[2] - u[2];
-	*lambda = scalarProd(p.normal, delta) / scalarprod;
+	delta[0] = p->a[0] - (*u)[0];
+	delta[1] = p->a[1] - (*u)[1];
+	delta[2] = p->a[2] - (*u)[2];
+	*lambda = scalarProd(&p->normal, &delta) / scalarprod;
 
 	if(*lambda <= 0)
 	{
@@ -91,9 +91,9 @@ bool checkPointInTriangle(Vector& point, triangle* tr) {
 	normalizeVector(&v1);
 	normalizeVector(&v2);
 	normalizeVector(&v3);
-	totalAngles += acos(scalarProd(v1,v2));
-	totalAngles += acos(scalarProd(v2,v3));
-	totalAngles += acos(scalarProd(v3,v1));
+	totalAngles += acos(scalarProd(&v1,&v2));
+	totalAngles += acos(scalarProd(&v2,&v3));
+	totalAngles += acos(scalarProd(&v3,&v1));
 	if (fabs(totalAngles - 2*M_PI) <= 0.005)
 		return true;
 	return false;

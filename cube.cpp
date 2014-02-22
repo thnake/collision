@@ -277,7 +277,7 @@ void init(void)
 //	   image = gltxReadRGB("paisley.rgb");
 	   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 //
-		   model = glmReadOBJ("hpsmall.obj");
+		   model = glmReadOBJ("cone.obj");
 //
 
 	   //glmUnitize(model);
@@ -400,7 +400,7 @@ void moveObjects()
 		}	
 
 		bowls[j].updatePosition(deltaT);
-
+		
 	}
 }
 
@@ -424,11 +424,13 @@ void drawObjects()
 		glBegin(GL_LINES);
 		Vector dir = b->pace;
 		normalizeVector(&dir);
-		glVertex3f(b->pos[0],b->pos[1],b->pos[2]);
+		
+		/*glVertex3f(b->pos[0],b->pos[1],b->pos[2]);
 
 		glVertex3f(b->pos[0]+dir[0]*5,
 			b->pos[1]+5*dir[1],
 			b->pos[2]+5*dir[2]);
+			*/
 		glPopMatrix();
 		glEnd();
 	}
@@ -446,7 +448,7 @@ void drawObjects()
 
 		}	
 	}
-
+	
 	glEnd();
 }
 
@@ -466,6 +468,7 @@ void mouseClick(int button, int state, int x, int y)
 		}
 		else
 		{
+			
 			addBowl( -1.5467927, 2.3390250, -0.21634442);
 			bowls[bcount-1].pace[0] = 0.0;
 			bowls[bcount-1].pace[1] = 0.0;
@@ -527,7 +530,8 @@ void inline collSpherePlanes()
 				float len = getVectorLen(dir);
 					tri = objects[i].triangles[j];
 					// tri um länge des radius heranholen
-					float sign = (scalarProd(dir, tri.normal) < 0) ? 1 : -1;
+					float sign = (scalarProd(&dir, &tri.normal) < 0) ? 1 : -1;
+					
 					tri.a[0] += b->radius*tri.normal[0]*sign;
 					tri.a[1] += b->radius*tri.normal[1]*sign;
 					tri.a[2] += b->radius*tri.normal[2]*sign;
@@ -543,8 +547,10 @@ void inline collSpherePlanes()
 					// broad phase:
 					pace = getVectorLen(b->pace);
 
+					
 					// naiver test mit unendlicher  ebene
-					check = checkIntersectRayPlane(tri, b->oldPos, b->pace, &lambda);
+					check = checkIntersectRayPlane(&tri, &b->oldPos, &b->pace, &lambda);
+					
 					if (check == 0 || lambda > pace)
 					{
 						continue;
@@ -561,7 +567,7 @@ void inline collSpherePlanes()
 
  					Vector face = s - b->oldPos;
 					normalizeVector(&face);
-					float dot = scalarProd(face, dir);
+					float dot = scalarProd(&face, &dir);
 
 					if(check == 1 && dot > 0)
 					{
@@ -591,7 +597,7 @@ void inline collSpherePlanes()
 								// neue schrittweite 
 								// gleitanteil
 								Vector slide = out - tri.normal;
-								float outDotN = abs(scalarProd(out,tri.normal));
+								float outDotN = abs(scalarProd(&out,&tri.normal));
 								
 								slide[0]= (out[0] - outDotN*tri.normal[0]);
 								slide[1]= (out[1] - outDotN*tri.normal[1]);
@@ -758,6 +764,7 @@ void lookAtModel()
 		normalizeVector(&cam.look);
 		cam.rotateViewingDirection(0,0,0); // erzeugt neuen Linksvektor
 	}
+
 }
 
 void keyboard(unsigned char key, int x, int y)

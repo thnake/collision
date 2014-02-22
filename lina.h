@@ -4,6 +4,7 @@
 #include <iostream>
 
 
+float scalarProd(Vector *v, Vector *u);
 float scalarProd(Vector v, Vector u);
 
 void normalizeVector(Vector *vec);

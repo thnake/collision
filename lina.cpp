@@ -61,6 +61,17 @@ Vector operator- (Vector u, Vector v)
 //}
 
 
+float scalarProd(Vector *v, Vector *u)
+{
+	float res = 0.0;
+	for(unsigned int i = 0; i < v->size(); i++)
+	{
+		res += (*v)[i]*(*u)[i];
+	}	
+	return res;
+}
+
+
 float scalarProd(Vector v, Vector u)
 {
 	float res = 0.0;
@@ -70,7 +81,6 @@ float scalarProd(Vector v, Vector u)
 	}	
 	return res;
 }
-
 
 
 void normalizeVector(Vector *vec)
@@ -92,7 +102,7 @@ float ScalarTriple(Vector a, Vector b, Vector c)
 {
 	Vector m(3);
 	crossProduct(a,b,&m);
-	return scalarProd(m, c);
+	return scalarProd(&m, &c);
 }
 
 float getVectorLen(Vector vec)
@@ -118,7 +128,7 @@ void getOutVector(Vector v, Vector n, Vector *out)
 {
 	// o + (-i) = 2*n
 	// o = 2*n + i
-	float dotprod = scalarProd(v,n);
+	float dotprod = scalarProd(&v,&n);
 	//dotprod /= dotprod;
 	int sign = -1*dotprod / abs(dotprod);
 	(*out)[0] = 2*sign*n[0] + v[0];
@@ -133,13 +143,13 @@ void getOutVector(Vector v, Vector n, Vector *out)
 float SqDistPointSegment(Vector a, Vector b, Vector c)
 {
 	Vector ab = b-a, ac = c-a, bc = c-b;
-	float e = scalarProd(ac, ab);
+	float e = scalarProd(&ac, &ab);
 	// fälle, wo c ausserhalb ab projeziert
-	if(e <=0.0f) return scalarProd(ac, ac);
-	float f = scalarProd(ab,ab);
-	if(e <= f) return scalarProd(bc,bc);
+	if(e <=0.0f) return scalarProd(&ac, &ac);
+	float f = scalarProd(&ab,&ab);
+	if(e <= f) return scalarProd(&bc,&bc);
 	// fälle, wo c auf ab projeziert
-	return scalarProd(ac,ac) - e * e/f;
+	return scalarProd(&ac,&ac) - e * e/f;
 }
 
 // Clamp n to lie within the range [min, max]
